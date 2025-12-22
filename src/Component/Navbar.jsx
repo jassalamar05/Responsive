@@ -1,5 +1,5 @@
 import { useState } from "react"
-import icon from "../assets/Images/todesktop-logo.bn2Qe8sb.avif"
+import icon from "../assets/Images/todesktop-logo.bn2Qe8sb.avif";
 
 export default function Navbar(){
     //false -- menu band  // true -- menu open
@@ -47,7 +47,8 @@ export default function Navbar(){
 
                 {/* logo */}
             <div className=" flex items-center">
-                <img src="src/assets/Images/todesktop-logo.bn2Qe8sb.avif" alt="" className="max-h-12" />
+
+                <img src={icon} alt="" className="max-h-12" />
                 <p className="text-xl font-bold">To Dekstop</p>
             </div>
 
