@@ -1,15 +1,21 @@
-export default function Navbar(){
+import { useState } from "react"
+import icon from "../assets/Images/todesktop-logo.bn2Qe8sb.avif"
 
-    const nav=document.getElementById("navmenu")
-    function handleSubmit(){
-    nav.classList.toggle("hidden")
+export default function Navbar(){
+    //false -- menu band  // true -- menu open
+
+    const[isOpen,setIsOpen]=useState(false)
+    const handleSubmit=()=>{
+        setIsOpen(!isOpen)
     }
+
+    
     return(
         <>
         <nav className="flex items-center justify-between p-2">
             {/* logo */}
             <div className=" flex items-center">
-                <img src="src/assets/Images/todesktop-logo.bn2Qe8sb.avif" alt="" className="max-h-12" />
+                <img src={icon} alt="" className="max-h-12" />
                 <p className="text-xl font-bold">To Dekstop</p>
             </div>
 
@@ -29,12 +35,14 @@ export default function Navbar(){
    
          <div className="block md:hidden">
             <button onClick={handleSubmit}>
-                    <i class="fa-solid fa-list"></i>
+                    <i className="fa-solid fa-list"></i>
             </button>
          </div>
 
         {/* dropdown of hamburg item kaisa banega  */}
-        <div className=" hidden fixed inset-0 p-2 bg-white md:hidden z-10" id="navmenu">
+
+        {isOpen && (
+        <div className=" fixed inset-0 p-2 bg-white md:hidden z-10">
             <div className="flex items-center justify-between" >
 
                 {/* logo */}
@@ -45,10 +53,12 @@ export default function Navbar(){
 
             {/* cross hamburg */}
              <button onClick={handleSubmit}>
-                     <i class="fa-solid fa-xmark"></i>
+                     <i className="fa-solid fa-xmark"></i>
             </button>
             </div>
 
+
+            
             <div className="block gap-10 md:hidden mt-6 p-4">
                 <a href="" className="hover:text-sky-500 hover:shadow-lg block p-2">Home</a>
                 <a href="" className="hover:text-sky-500 hover:shadow-lg block p-2">About</a>
@@ -58,6 +68,7 @@ export default function Navbar(){
             </div>
 
         </div>
+        )}
 
         </nav>
         
