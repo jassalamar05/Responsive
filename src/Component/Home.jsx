@@ -1,5 +1,6 @@
 import { useState } from "react"
 import icon from "../assets/Images/todesktop-logo.bn2Qe8sb.avif";
+import { Link } from "react-router-dom";
 
 export default function Home(){
     //false -- menu band  // true -- menu open
@@ -29,6 +30,7 @@ export default function Home(){
         {/* electron button */}
             <div className="hidden md:block gap-20">
                 <button className="border-2 p-2 hover:border-sky-600 bg-sky-600 hover:rounded-3xl">Login</button>
+                <Link to="/add" > <button className="border-2 p-2 hover:border-sky-600 bg-sky-600 hover:rounded-3xl">Add</button></Link>
                 <button className="border-2 p-2 hover:border-sky-600 bg-sky-600 hover:rounded-3xl">Register</button>
                 <button className="border-2 p-2 hover:border-sky-600 hover:rounded-3xl">
                     Electron Developer

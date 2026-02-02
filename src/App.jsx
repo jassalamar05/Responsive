@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './Component/Home'
 import Add from './Component/Add'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +13,7 @@ function App() {
   return (
     <>
     <BrowserRouter>
+    <Toaster position="top-right" reverseOrder={false} />
     <Routes>
      <Route path="/" element={<Home />} />
      <Route path="/add" element={<Add />} />
