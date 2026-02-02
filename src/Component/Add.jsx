@@ -15,7 +15,7 @@ export default function Add() {
       setLoad(true);
       setErr(null);
 
-      const fooddata = await fetch("http://localhost:5000/api/add", {
+      const fooddata = await fetch("http://3.108.184.141:5000/api/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
