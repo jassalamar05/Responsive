@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import toast from "react-hot-toast"
 
 export default function Update() {
+const API = import.meta.env.VITE_API_URL;
   const [data, setData] = useState([])
   const [edit, setEdit] = useState(null)
   const [load, setLoad] = useState(false)
@@ -12,7 +13,7 @@ export default function Update() {
     const getall = async () => {
       try {
         setLoad(true)
-        const res = await fetch("http://localhost:5000/api/get")
+        const res = await fetch(`${API}/api/get`);
         const result = await res.json()
         setData(result.data || [])
       } catch (error) {
@@ -31,8 +32,7 @@ export default function Update() {
     try {
       setLoad(true)
 
-      const res = await fetch(
-        `http://3.108.184.141:5000/${edit._id}`,
+      const res = await fetch(`${API}/api/update/${edit._id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -45,7 +45,8 @@ export default function Update() {
       )
 
       const result = await res.json()
-      if(!update){
+
+      if(!res.ok){
         throw new Error("something wwnt worng")
       }
 

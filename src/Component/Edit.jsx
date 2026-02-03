@@ -5,13 +5,14 @@ export default function Edit() {
   const [load, setLoad] = useState(false)
   const [err, setErr] = useState(null)
 
+  const API = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const getall = async () => {
       try {
         setLoad(true)
         setErr(null)
-
-        const res = await fetch("http://3.108.184.141:5000/api/get")
+        
+     const res = await fetch(`${API}/api/get`);
         const result = await res.json()
 
         setData(result.data || [])
