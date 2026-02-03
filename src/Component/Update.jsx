@@ -7,6 +7,8 @@ const API = import.meta.env.VITE_API_URL;
   const [edit, setEdit] = useState(null)
   const [load, setLoad] = useState(false)
   const [err, setErr] = useState(null)
+  console.log(import.meta.env.VITE_API_URL)
+
 
   // GET DATA
   useEffect(() => {
